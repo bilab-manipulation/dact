@@ -1,3 +1,15 @@
+# DACT: Dynamic Action Chunking with Transformers
+    # generate simulation data
+    python3 record_sim_episodes.py --task_name sim_transfer_cube_scripted --dataset_dir ./data --num_episodes 50
+    # visualize episode
+    python3 visualize_episode.py --dataset_dir ./data --episode_idx 0
+    # train ACT
+    python3 imitate_episodes.py --task_name sim_transfer_cube_scripted --ckpt_dir ./ckpt --policy_class ACT --kl_weight 10 --chunk_size 100 --hidden_dim 512 --batch_size 8 --dim_feedforward 3200 --num_epochs 2000 --lr 1e-5 --seed 0
+    # evaluate ACT
+    --eval
+    --temporal_agg
+    --onscreen_render
+
 # ACT: Action Chunking with Transformers
 
 ### *New*: [ACT tuning tips](https://docs.google.com/document/d/1FVIZfoALXg_ZkYKaYVh-qOlaXveq5CtvJHXkY25eYhs/edit?usp=sharing)
